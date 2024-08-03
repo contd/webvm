@@ -33,8 +33,9 @@ RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0 && \
     asdf global nomad latest && \
     asdf global boundary latest && \
     asdf global helm latest && \
-    asdf global awscli latest && \
-    curl -sS https://starship.rs/install.sh | sh && \
+    asdf global awscli latest
+
+RUN curl -sS https://starship.rs/install.sh | sh && \
     eval "$(starship init bash)" && \
     mkdir "$HOME/.config "&& \
     starship preset pastel-powerline -o ~/.config/starship.toml
