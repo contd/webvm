@@ -2,7 +2,9 @@ FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt -y upgrade && \
-    apt -y install curl git build-essential unzip
+    apt -y install curl git build-essential unzip bash
+
+SHELL ["/bin/bash", "-c"]
 
 RUN mkdir -p /root/.local/share/fonts
 RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
