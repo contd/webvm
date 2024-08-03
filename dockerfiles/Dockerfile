@@ -6,7 +6,6 @@ RUN apt update && apt -y upgrade && \
 
 SHELL ["/bin/bash", "-c"]
 ENV HOME "/root"
-ENV PATH "${HOME}/.asdf/bin/${PATH}"
 COPY ./.bashrc ${HOME}/.bashrc
 RUN . ${HOME}/.bashrc
 
@@ -16,6 +15,7 @@ RUN cd ${HOME}/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd
 RUN git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.14.0
 RUN . "${HOME}/.asdf/asdf.sh"
 RUN . "${HOME}/.asdf/completions/asdf.bash"
+ENV PATH "${HOME}/.asdf/bin:${PATH}"
 
 RUN asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
 RUN asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
