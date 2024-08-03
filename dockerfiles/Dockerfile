@@ -9,9 +9,6 @@ ENV HOME "/root"
 COPY ./.bashrc ${HOME}/.bashrc
 RUN . ${HOME}/.bashrc
 
-RUN mkdir -p ${HOME}/.local/share/fonts
-RUN cd ${HOME}/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
-
 RUN git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.14.0
 RUN . "${HOME}/.asdf/asdf.sh"
 RUN . "${HOME}/.asdf/completions/asdf.bash"
