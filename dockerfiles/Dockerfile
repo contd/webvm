@@ -15,6 +15,18 @@ RUN git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.14.0
 RUN . "/root/.asdf/asdf.sh"
 RUN . "/root/.asdf/completions/asdf.bash"
 
+RUN /root/.asdf/bin/asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+RUN /root/.asdf/bin/asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add packer https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add nomad https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add boundary https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add consul https://github.com/asdf-community/asdf-hashicorp.git
+RUN /root/.asdf/bin/asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+RUN /root/.asdf/bin/asdf plugin-add flux2 https://github.com/tablexi/asdf-flux2.git
+RUN /root/.asdf/bin/asdf plugin-add k9s https://github.com/looztra/asdf-k9s
+RUN /root/.asdf/bin/asdf plugin-add kind https://github.com/reegnz/asdf-kind.git
+RUN /root/.asdf/bin/asdf plugin add awscli
 RUN /root/.asdf/bin/asdf install kubectl latest
 RUN /root/.asdf/bin/asdf install vault latest
 RUN /root/.asdf/bin/asdf install terraform latest
