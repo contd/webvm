@@ -4,12 +4,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt -y upgrade && \
     apt -y install curl git build-essential unzip
 
-RUN mkdir -p $HOME/.local/share/fonts
-RUN cd $HOME/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+RUN mkdir -p /root/.local/share/fonts
+RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-RUN . "$HOME/.asdf/asdf.sh"
-RUN . "$HOME/.asdf/completions/asdf.bash"
+RUN . "/root/.asdf/asdf.sh"
+RUN . "/root/.asdf/completions/asdf.bash"
 
 RUN asdf install kubectl latest && \
     asdf install vault latest && \
@@ -38,7 +38,7 @@ RUN asdf install kubectl latest && \
 
 RUN curl -sS https://starship.rs/install.sh | sh
     # eval "$(starship init bash)" && \
-    # mkdir "$HOME/.config "&& \
+    # mkdir "/root/.config "&& \
     # starship preset pastel-powerline -o ~/.config/starship.toml
 
 COPY ./.bashrc /root/.bashrc
