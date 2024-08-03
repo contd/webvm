@@ -2,7 +2,7 @@ FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt -y upgrade && \
-    apt -y install curl git build-essential unzip bash
+    apt -y install curl git unzip bash
 
 SHELL ["/bin/bash", "-c"]
 ENV HOME "/root"
