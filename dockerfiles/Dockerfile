@@ -11,8 +11,9 @@ RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-f
 
 RUN git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.14.0
 #ENV ASDF_DIR="/root/.asdf/"
-RUN . "/root/.asdf/asdf.sh"
-RUN . "/root/.asdf/completions/asdf.bash"
+RUN alias asdf=/root/.asdf/bin/asdf
+RUN bash "/root/.asdf/asdf.sh"
+RUN bash "/root/.asdf/completions/asdf.bash"
 
 RUN asdf install kubectl latest
 RUN asdf install vault latest
