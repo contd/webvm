@@ -15,30 +15,30 @@ RUN ln -s /root/.asdf/bin/asdf /usr/bin/asdf
 RUN bash "/root/.asdf/asdf.sh"
 RUN bash "/root/.asdf/completions/asdf.bash"
 
-RUN asdf install kubectl latest
-RUN asdf install vault latest
-RUN asdf install terraform latest
-RUN asdf install packer latest
-RUN asdf install vault latest
-RUN asdf install packer latest
-RUN asdf install terraform latest
-RUN asdf install nomad latest
-RUN asdf install boundary latest
-RUN asdf install consul latest
-RUN asdf install helm latest
-RUN asdf install awscli latest
-RUN asdf global kubectl latest
-RUN asdf global vault latest
-RUN asdf global packer latest
-RUN asdf global terraform latest
-RUN asdf global vault latest
-RUN asdf global packer latest
-RUN asdf global terraform latest
-RUN asdf global consul latest
-RUN asdf global nomad latest
-RUN asdf global boundary latest
-RUN asdf global helm latest
-RUN asdf global awscli latest
+RUN /root/.asdf/bin/asdf install kubectl latest
+RUN /root/.asdf/bin/asdf install vault latest
+RUN /root/.asdf/bin/asdf install terraform latest
+RUN /root/.asdf/bin/asdf install packer latest
+RUN /root/.asdf/bin/asdf install vault latest
+RUN /root/.asdf/bin/asdf install packer latest
+RUN /root/.asdf/bin/asdf install terraform latest
+RUN /root/.asdf/bin/asdf install nomad latest
+RUN /root/.asdf/bin/asdf install boundary latest
+RUN /root/.asdf/bin/asdf install consul latest
+RUN /root/.asdf/bin/asdf install helm latest
+RUN /root/.asdf/bin/asdf install awscli latest
+RUN /root/.asdf/bin/asdf global kubectl latest
+RUN /root/.asdf/bin/asdf global vault latest
+RUN /root/.asdf/bin/asdf global packer latest
+RUN /root/.asdf/bin/asdf global terraform latest
+RUN /root/.asdf/bin/asdf global vault latest
+RUN /root/.asdf/bin/asdf global packer latest
+RUN /root/.asdf/bin/asdf global terraform latest
+RUN /root/.asdf/bin/asdf global consul latest
+RUN /root/.asdf/bin/asdf global nomad latest
+RUN /root/.asdf/bin/asdf global boundary latest
+RUN /root/.asdf/bin/asdf global helm latest
+RUN /root/.asdf/bin/asdf global awscli latest
 
 RUN curl -sS https://starship.rs/install.sh | sh
 #RUN eval "$(starship init bash)"
