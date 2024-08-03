@@ -11,7 +11,7 @@ on:
         type: string
         description: 'Path to the Dockerfile'
         required: true
-        default: 'dockerfiles/debian_mini'
+        default: 'dockerfiles/Dockerfile'
 
       IMAGE_SIZE:
         type: string
@@ -23,13 +23,13 @@ on:
         type: boolean
         description: 'Deploy to Github pages'
         required: true
-        default: true
+        default: false
 
       GITHUB_RELEASE:
         type: boolean
         description: 'Upload GitHub release'
         required: true
-        default: false
+        default: true
 
 jobs:
 
