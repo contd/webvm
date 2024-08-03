@@ -5,52 +5,48 @@ RUN apt update && apt -y upgrade && \
     apt -y install curl git build-essential unzip bash
 
 SHELL ["/bin/bash", "-c"]
-COPY ./.bashrc /root/.bashrc
-RUN . /root/.bashrc
+ENV HOME "/root"
+ENV PATH "${HOME}/.asdf/bin/${PATH}"
+COPY ./.bashrc ${HOME}/.bashrc
+RUN . ${HOME}/.bashrc
 
-RUN mkdir -p /root/.local/share/fonts
-RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+RUN mkdir -p ${HOME}/.local/share/fonts
+RUN cd ${HOME}/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
-RUN git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.14.0
-RUN . "/root/.asdf/asdf.sh"
-RUN . "/root/.asdf/completions/asdf.bash"
+RUN git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.14.0
+RUN . "${HOME}/.asdf/asdf.sh"
+RUN . "${HOME}/.asdf/completions/asdf.bash"
 
-RUN /root/.asdf/bin/asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
-RUN /root/.asdf/bin/asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add packer https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add nomad https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add boundary https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add consul https://github.com/asdf-community/asdf-hashicorp.git
-RUN /root/.asdf/bin/asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
-RUN /root/.asdf/bin/asdf plugin-add flux2 https://github.com/tablexi/asdf-flux2.git
-RUN /root/.asdf/bin/asdf plugin-add k9s https://github.com/looztra/asdf-k9s
-RUN /root/.asdf/bin/asdf plugin-add kind https://github.com/reegnz/asdf-kind.git
-RUN /root/.asdf/bin/asdf plugin add awscli
-RUN /root/.asdf/bin/asdf install kubectl latest
-RUN /root/.asdf/bin/asdf install vault latest
-RUN /root/.asdf/bin/asdf install terraform latest
-RUN /root/.asdf/bin/asdf install packer latest
-RUN /root/.asdf/bin/asdf install vault latest
-RUN /root/.asdf/bin/asdf install packer latest
-RUN /root/.asdf/bin/asdf install terraform latest
-RUN /root/.asdf/bin/asdf install nomad latest
-RUN /root/.asdf/bin/asdf install boundary latest
-RUN /root/.asdf/bin/asdf install consul latest
-RUN /root/.asdf/bin/asdf install helm latest
-RUN /root/.asdf/bin/asdf install awscli latest
-RUN /root/.asdf/bin/asdf global kubectl latest
-RUN /root/.asdf/bin/asdf global vault latest
-RUN /root/.asdf/bin/asdf global packer latest
-RUN /root/.asdf/bin/asdf global terraform latest
-RUN /root/.asdf/bin/asdf global vault latest
-RUN /root/.asdf/bin/asdf global packer latest
-RUN /root/.asdf/bin/asdf global terraform latest
-RUN /root/.asdf/bin/asdf global consul latest
-RUN /root/.asdf/bin/asdf global nomad latest
-RUN /root/.asdf/bin/asdf global boundary latest
-RUN /root/.asdf/bin/asdf global helm latest
-RUN /root/.asdf/bin/asdf global awscli latest
+RUN asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+RUN asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add packer https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add nomad https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add boundary https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add consul https://github.com/asdf-community/asdf-hashicorp.git
+RUN asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+RUN asdf plugin-add flux2 https://github.com/tablexi/asdf-flux2.git
+RUN asdf plugin-add k9s https://github.com/looztra/asdf-k9s
+RUN asdf plugin-add kind https://github.com/reegnz/asdf-kind.git
+RUN asdf plugin add awscli
+RUN asdf install kubectl latest
+RUN asdf install vault latest
+RUN asdf install terraform latest
+RUN asdf install packer latest
+RUN asdf install nomad latest
+RUN asdf install boundary latest
+RUN asdf install consul latest
+RUN asdf install helm latest
+RUN asdf install awscli latest
+RUN asdf global kubectl latest
+RUN asdf global vault latest
+RUN asdf global packer latest
+RUN asdf global terraform latest
+RUN asdf global consul latest
+RUN asdf global nomad latest
+RUN asdf global boundary latest
+RUN asdf global helm latest
+RUN asdf global awscli latest
 
 RUN curl -sS https://starship.rs/install.sh | sh
 #RUN eval "$(starship init bash)"
