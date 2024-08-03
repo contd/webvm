@@ -6,6 +6,10 @@ RUN apt update && apt -y upgrade && \
 
 SHELL ["/bin/bash", "-c"]
 ENV HOME "/root"
+
+RUN mkdir -p ${HOME}/.local/share/fonts
+RUN cd ${HOME}/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+
 COPY ./.bashrc ${HOME}/.bashrc
 RUN . ${HOME}/.bashrc
 
