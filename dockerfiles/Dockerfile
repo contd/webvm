@@ -12,10 +12,8 @@ RUN mkdir -p /root/.local/share/fonts
 RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
 RUN git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.14.0
-#ENV ASDF_DIR="/root/.asdf/"
-RUN ln -s /root/.asdf/bin/asdf /usr/bin/asdf
-RUN bash "/root/.asdf/asdf.sh"
-RUN bash "/root/.asdf/completions/asdf.bash"
+RUN . "/root/.asdf/asdf.sh"
+RUN . "/root/.asdf/completions/asdf.bash"
 
 RUN /root/.asdf/bin/asdf install kubectl latest
 RUN /root/.asdf/bin/asdf install vault latest
