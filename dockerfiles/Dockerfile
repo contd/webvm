@@ -30,5 +30,5 @@ RUN asdf global awscli latest
 
 RUN curl -O https://starship.rs/install.sh && chmod +x install.sh && ./install.sh --yes
 RUN eval "$(starship init bash)"
-RUN mkdir "${HOME}/.config
-RUN starship preset pastel-powerline -o ~/.config/starship.toml
+RUN mkdir "${HOME}/.config"
+RUN starship preset pastel-powerline -o "${HOME}/.config/starship.toml"
