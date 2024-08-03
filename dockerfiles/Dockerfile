@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-c"]
 RUN mkdir -p /root/.local/share/fonts
 RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-ENV ASDF_DIR="/root/.asdf/"
+RUN git clone https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.14.0
+#ENV ASDF_DIR="/root/.asdf/"
 RUN . "/root/.asdf/asdf.sh"
 RUN . "/root/.asdf/completions/asdf.bash"
 
