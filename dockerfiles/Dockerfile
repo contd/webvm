@@ -48,7 +48,7 @@ RUN asdf global boundary latest
 RUN asdf global helm latest
 RUN asdf global awscli latest
 
-RUN curl -sS https://starship.rs/install.sh | sh --yes
+RUN curl -O https://starship.rs/install.sh && chmod +x install.sh && ./install.sh --yes
 #RUN eval "$(starship init bash)"
 #RUN mkdir "${HOME}/.config
 #RUN starship preset pastel-powerline -o ~/.config/starship.toml
