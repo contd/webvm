@@ -129,10 +129,5 @@ alias path='echo $PATH | tr ":" "\n"'
 alias h=history
 alias hnn="history | sed 's/^.\{,7\}//'"
 
-export AWS_PROFILE=apexiq
-export GITLAB_TOKEN=glpat-yxizBnQ8wazEefv2jXri
-
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
-
-eval "$(starship init bash)"

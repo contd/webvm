@@ -2,7 +2,7 @@ FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt -y upgrade && \
-    apt -y install curl git unzip bash
+    apt -y install curl git unzip bash vim
 
 SHELL ["/bin/bash", "-c"]
 ENV HOME "/root"
@@ -36,3 +36,4 @@ RUN curl -O https://starship.rs/install.sh && chmod +x install.sh && ./install.s
 RUN eval "$(starship init bash)"
 RUN mkdir "${HOME}/.config"
 RUN starship preset pastel-powerline -o "${HOME}/.config/starship.toml"
+#RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
