@@ -9,8 +9,9 @@ RUN cd $HOME/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-f
 
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0 && \
     . "$HOME/.asdf/asdf.sh" && \
-    . "$HOME/.asdf/completions/asdf.bash" && \
-    asdf install kubectl latest && \
+    . "$HOME/.asdf/completions/asdf.bash"
+
+RUN asdf install kubectl latest && \
     asdf install vault latest && \
     asdf install terraform latest && \
     asdf install packer latest && \
