@@ -5,6 +5,8 @@ RUN apt update && apt -y upgrade && \
     apt -y install curl git build-essential unzip bash
 
 SHELL ["/bin/bash", "-c"]
+COPY ./.bashrc /root/.bashrc
+RUN . /root/.bashrc
 
 RUN mkdir -p /root/.local/share/fonts
 RUN cd /root/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
@@ -44,5 +46,3 @@ RUN curl -sS https://starship.rs/install.sh | sh
 #RUN eval "$(starship init bash)"
 #RUN mkdir "/root/.config "&& \
 #RUN starship preset pastel-powerline -o ~/.config/starship.toml
-
-COPY ./.bashrc /root/.bashrc
